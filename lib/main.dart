@@ -4,14 +4,24 @@ import 'package:location_wise_time/pages/home.dart';
 import 'package:location_wise_time/pages/loading.dart';
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MyApp());
+}
 
-    debugShowCheckedModeBanner: false,
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
-    routes: {
-      '/': (context) => Loading(),
-      '/home': (context) => Home(),
-      '/location': (context) => ChooseLocation(),
-    },
-  ));
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+
+      debugShowCheckedModeBanner: false,
+
+      routes: {
+        '/': (context) => Loading(),
+        '/home': (context) => Home(),
+        '/location': (context) => ChooseLocation(),
+      },
+    );
+  }
 }
