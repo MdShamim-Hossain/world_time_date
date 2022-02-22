@@ -87,6 +87,14 @@ class _ChooseLocationState extends State<ChooseLocation> {
     super.initState();
   }
 
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -105,9 +113,15 @@ class _ChooseLocationState extends State<ChooseLocation> {
             child: ListTile(
               onTap: (){
                 setState(() {
-
+                  _incrementCounter();
+                  print(_counter);
+                  if(_counter == 1){
+                    updateTime(index);
+                  }else{
+                    null;
+                  }
                 });
-                updateTime(index);
+                //updateTime(index);
                 print(locations[index].location);
               },
               title: Text(locations[index].location),
